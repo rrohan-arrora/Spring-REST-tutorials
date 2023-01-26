@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,4 +32,12 @@ public class StudentController {
 	public List<Student> getStudents(){		
 		return theStudents;
 	}
+	
+	@GetMapping("/students/{studentId}")
+	public Student getStudent(@PathVariable int studentId) {
+		
+		// here jackson will convert the POJO to JSON by itself...
+		return theStudents.get(studentId);
+	}
+	
 }
