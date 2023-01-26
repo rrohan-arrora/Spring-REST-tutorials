@@ -33,7 +33,7 @@ public class StudentController {
 		return theStudents;
 	}
 	
-	@GetMapping("/students/{studentId}")
+	@GetMapping("/students/{studentIad}")
 	public Student getStudent(@PathVariable int studentId) {
 		
 		// here jackson will convert the POJO to JSON by itself...
