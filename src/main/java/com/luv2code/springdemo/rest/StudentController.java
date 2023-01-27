@@ -36,6 +36,11 @@ public class StudentController {
 	@GetMapping("/students/{studentId}")
 	public Student getStudent(@PathVariable int studentId) {
 		
+		// check the studentId against list size
+		if((studentId >= theStudents.size()) || studentId<0) {
+			throw new StudentNotFoundException("Student id not found - "+ studentId);
+		}
+		
 		// here jackson will convert the POJO to JSON by itself...
 		return theStudents.get(studentId);
 	}
